@@ -1,18 +1,12 @@
-@import "components/variables";
-@import "components/fonts";
-@import "components/mixins";
-@import "components/normilize";
-@import "components/helpers";
-@import "components/base";
-
-// Desktop parts
-
-
-.mobile {
-}
+ // Base styles
+ @import "common/variables";
+ @import "common/fonts";
+ @import "common/mixins";
+ @import "common/normalize";
+ @import "common/helpers";
+ @import "common/base";
 
 
-@import "components/media";
+ // Custom styles
 
-
-
+ // Media styles
