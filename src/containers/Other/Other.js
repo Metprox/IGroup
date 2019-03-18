@@ -13,6 +13,8 @@ class Other extends Component {
         City: City,
         checkedFilter: true,
         filtersData: {},
+        max: 0,
+        min: 0,
     };
 
     handlerSwitcherCity = data => {
@@ -25,6 +27,29 @@ class Other extends Component {
             return this.state.Category[data - 1].name;
         }
     };
+
+    maximalVal = () => {
+        let resum = this.state.Data.map(item => {
+            return item.price;
+        });
+        this.setState({
+            max: Math.max(...resum) + '$'
+        });
+    };
+
+    minimalVal = () => {
+        let resum = this.state.Data.map(item => {
+            return item.price;
+        });
+        this.setState({
+            min: Math.min(...resum) + '$'
+        });
+    };
+
+    componentDidMount() {
+        this.maximalVal();
+        this.minimalVal();
+    }
 
     filterListCity = e => {
         let regex = /\d+/g;
@@ -93,7 +118,7 @@ class Other extends Component {
                             <div className={cls.filters__range}>
                                 <h1>Price</h1>
                                 <input type="range" min="0" max="250" />
-                                <p>min - max</p>
+                                <p>{this.state.min} - {this.state.max}</p>
                                 <button
                                     className={cls.filterBtn}
                                     onClick={this.filterList}
