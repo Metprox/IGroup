@@ -84,7 +84,9 @@ class Other extends Component {
                                             name="categories"
                                             id={item.id}
                                         />
-                                        <label for={item.id}>{item.name}</label>
+                                        <label htmlFor={item.id}>
+                                            {item.name}
+                                        </label>
                                     </div>
                                 ))}
                             </div>
